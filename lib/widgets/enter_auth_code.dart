@@ -1,17 +1,16 @@
-import 'package:fl_example/screens/enter_auth_code.dart';
-import 'package:fl_example/widgets/enter_auth_code.dart';
+import 'package:fl_example/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
-class AuthForm extends StatefulWidget {
-  const AuthForm({super.key});
+class EnterAuthCodeForm extends StatefulWidget {
+  const EnterAuthCodeForm({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return AuthFormState();
+    return EnterAuthCodeFormState();
   }
 }
 
-class AuthFormState extends State<AuthForm> {
+class EnterAuthCodeFormState extends State<EnterAuthCodeForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -20,9 +19,7 @@ class AuthFormState extends State<AuthForm> {
       key: _formKey,
       child: Column(
         children: [
-          const Text(
-            'Войти'
-          ),
+          const Text('Введите код'),
           TextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -30,6 +27,10 @@ class AuthFormState extends State<AuthForm> {
               }
               return null;
             },
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              labelText: 'Enter your username',
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -38,15 +39,15 @@ class AuthFormState extends State<AuthForm> {
                 if (_formKey.currentState!.validate()) {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const EnterAuthCode())
+                      MaterialPageRoute(builder: (context) => const MainScreen())
                   );
                 }
               },
-              child: const Text('Получить код'),
+              child: const Text('Войти'),
             ),
           )
         ],
-      )
+      ),
     );
   }
 }
