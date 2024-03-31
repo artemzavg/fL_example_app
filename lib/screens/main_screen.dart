@@ -9,15 +9,25 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          child: const Text('Войти'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const AuthScreen())
-            );
-          },
-        )
+        child: Column(
+          children: [
+            const Padding(padding: EdgeInsets.symmetric(vertical: 50)),
+            Image.asset(
+              'images/logo.png',
+              width: 200,
+            ),
+            const Padding(padding: EdgeInsets.symmetric(vertical: 50)),
+            ElevatedButton(
+              child: const Text('Войти'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const AuthScreen())
+                );
+              },
+            )
+          ],
+        ),
       )
     );
   }
