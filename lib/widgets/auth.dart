@@ -1,5 +1,4 @@
 import 'package:fl_example/screens/enter_auth_code.dart';
-import 'package:fl_example/widgets/enter_auth_code.dart';
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
